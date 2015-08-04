@@ -1,0 +1,69 @@
+<%= form_for(@veiculo) do |f| %>
+  <% if @veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+
+      <ul>
+      <% @veiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :marca_id %></div>
+      <div class="col-md-10"><%= f.text_field :marca_id %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :modelo_id %></div>
+      <div class="col-md-10"><%= f.text_field :modelo_id %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :placa %></div>
+      <div class="col-md-10"><%= f.text_field :placa %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :renavam %></div>
+      <div class="col-md-10"><%= f.text_field :renavam %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :cor_veiculo_id,'Cor' %></div>
+      <div class="col-md-10"><%= f.text_field :cor_veiculo_id %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :chassi %></div>
+      <div class="col-md-10"><%= f.text_field :chassi %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :peso %></div>
+      <div class="col-md-10"><%= f.text_field :peso %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :capacidade_carga,'Capacidade de carga' %></div>
+      <div class="col-md-10"><%= f.text_field :capacidade_carga %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :tipo_veiculo_id %></div>
+      <div class="col-md-10"><%= f.text_field :tipo_veiculo_id %></div>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary", :value => "Salvar" %>
+    </div>
+  </div>
+<% end %>
