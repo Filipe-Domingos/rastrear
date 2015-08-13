@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root "home#index"
+
+  resources :condutores
   resources :veiculos
   resources :tipo_veiculos
   resources :modelos
   resources :cor_veiculos
   resources :marcas
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

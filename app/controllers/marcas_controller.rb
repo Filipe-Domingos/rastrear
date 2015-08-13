@@ -4,7 +4,7 @@ class MarcasController < ApplicationController
   # GET /marcas
   # GET /marcas.json
   def index
-    @marcas = Marca.all
+    @marcas = Marca.all.order(:descricao)
   end
 
   # GET /marcas/1
@@ -28,7 +28,7 @@ class MarcasController < ApplicationController
 
     respond_to do |format|
       if @marca.save
-        format.html { redirect_to @marca, notice: 'Marca was successfully created.' }
+        format.html { redirect_to new_marca_path, notice: 'Marca cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @marca }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MarcasController < ApplicationController
   def update
     respond_to do |format|
       if @marca.update(marca_params)
-        format.html { redirect_to @marca, notice: 'Marca was successfully updated.' }
+        format.html { redirect_to marcas_url, notice: 'Marca alterada com sucesso.' }
         format.json { render :show, status: :ok, location: @marca }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MarcasController < ApplicationController
   def destroy
     @marca.destroy
     respond_to do |format|
-      format.html { redirect_to marcas_url, notice: 'Marca was successfully destroyed.' }
+      format.html { redirect_to marcas_url, notice: 'Marca excluída com sucesso.' }
       format.json { head :no_content }
     end
   end

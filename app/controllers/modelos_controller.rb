@@ -4,7 +4,7 @@ class ModelosController < ApplicationController
   # GET /modelos
   # GET /modelos.json
   def index
-    @modelos = Modelo.all
+    @modelos = Modelo.all.order(:descricao)
   end
 
   # GET /modelos/1
@@ -15,10 +15,12 @@ class ModelosController < ApplicationController
   # GET /modelos/new
   def new
     @modelo = Modelo.new
+    @marcas = Marca.all.order(:descricao)
   end
 
   # GET /modelos/1/edit
   def edit
+    @marcas = Marca.all.order(:descricao)
   end
 
   # POST /modelos
@@ -28,7 +30,7 @@ class ModelosController < ApplicationController
 
     respond_to do |format|
       if @modelo.save
-        format.html { redirect_to @modelo, notice: 'Modelo was successfully created.' }
+        format.html { redirect_to new_modelo_path, notice: 'Modelo cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @modelo }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ModelosController < ApplicationController
   def update
     respond_to do |format|
       if @modelo.update(modelo_params)
-        format.html { redirect_to @modelo, notice: 'Modelo was successfully updated.' }
+        format.html { redirect_to  modelos_url, notice: 'Modelo alterado com sucesso.' }
         format.json { render :show, status: :ok, location: @modelo }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class ModelosController < ApplicationController
   def destroy
     @modelo.destroy
     respond_to do |format|
-      format.html { redirect_to modelos_url, notice: 'Modelo was successfully destroyed.' }
+      format.html { redirect_to modelos_url, notice: 'Modelo excluido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class ModelosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modelo_params
-      params.require(:modelo).permit(:descricao)
+      params.require(:modelo).permit(:descricao,:marca_id)
     end
 end

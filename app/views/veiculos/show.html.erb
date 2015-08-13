@@ -1,13 +1,19 @@
-<p id="notice"><%= notice %></p>
+
+<h1>Detalhes de veiculo</h1>
 
 <p>
-  <strong>Modelo:</strong>
-  <%= @veiculo.modelo %>
+  <strong>Tipo de veiculo:</strong>
+  <%= @veiculo.tipo_veiculo.descricao %>
 </p>
 
 <p>
   <strong>Marca:</strong>
-  <%= @veiculo.marca %>
+  <%= @veiculo.modelo.marca.descricao %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @veiculo.modelo.descricao %>
 </p>
 
 <p>
@@ -21,8 +27,8 @@
 </p>
 
 <p>
-  <strong>Cor veiculo:</strong>
-  <%= @veiculo.cor_veiculo %>
+  <strong>Cor:</strong>
+  <%= @veiculo.cor_veiculo.descricao %>
 </p>
 
 <p>
@@ -36,14 +42,19 @@
 </p>
 
 <p>
-  <strong>Capacidade carga:</strong>
+  <strong>Capacidade de carga:</strong>
   <%= @veiculo.capacidade_carga %>
 </p>
 
-<p>
-  <strong>Tipo veiculo:</strong>
-  <%= @veiculo.tipo_veiculo %>
-</p>
-
-<%= link_to 'Edit', edit_veiculo_path(@veiculo) %> |
-<%= link_to 'Back', veiculos_path %>
+<div class="col-md-1">
+  <%= link_to edit_veiculo_path(@veiculo), :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Editar
+  <% end %>
+</div>
+<div class="col-md-1">
+  <%= link_to veiculos_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Voltar
+  <% end %>
+</div>

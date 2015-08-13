@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @condutor.nome %>
+</p>
+
+<p>
+  <strong>Cnh:</strong>
+  <%= @condutor.cnh %>
+</p>
+
+<p>
+  <strong>Vencimento:</strong>
+  <%= @condutor.vencimento %>
+</p>
+
+<p>
+  <strong>Categoria cnh:</strong>
+  <%= @condutor.categoria_cnh %>
+</p>
+
+<%= link_to 'Edit', edit_condutor_path(@condutor) %> |
+<%= link_to 'Back', condutores_path %>

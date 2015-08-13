@@ -1,14 +1,15 @@
 <%= form_for(@marca) do |f| %>
   <% if @marca.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@marca.errors.count, "error") %> prohibited this marca from being saved:</h2>
-
-      <ul>
-      <% @marca.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+	  <div class="alert alert-danger alert-dismissable">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <ul>
+	    <% @marca.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
   <% end %>
 
   <div class="row">
@@ -21,7 +22,14 @@
   <br/>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-md-1">
+      <%= link_to marcas_path, :class => 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Voltar
+      <% end %>
+    </div>
+
+    <div class="col-md-1">
       <%= f.submit :class => "btn btn-primary", :value => "Enviar" %>
     </div>
   </div>

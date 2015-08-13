@@ -1,31 +1,49 @@
 <%= form_for(@veiculo) do |f| %>
   <% if @veiculo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
-
-      <ul>
-      <% @veiculo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+	  <div class="alert alert-danger alert-dismissable">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <ul>
+	    <% @veiculo.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
   <% end %>
 
   <div class="row">
 
     <div class="form-group">
-      <div class="col-md-2"><%= f.label :marca_id %></div>
-      <div class="col-md-10"><%= f.text_field :marca_id %></div>
+      <div class="col-md-2"><%= f.label :tipo_veiculo_id, 'Tipo de veiculo' %></div>
+      <div class="col-md-2">
+        <%= f.collection_select(:tipo_veiculo_id, @tipo_veiculos,:id, :descricao,prompt: "Selecione um tipo") %>
+      </div>
     </div>
 
+    <br/>
+
     <div class="form-group">
-      <div class="col-md-2"><%= f.label :modelo_id %></div>
-      <div class="col-md-10"><%= f.text_field :modelo_id %></div>
+      <div class="col-md-1"><%= label_tag :marca_id, 'Marca' %></div>
+      <div class="col-md-2">
+        <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id] } ),prompt: "Selecione uma marca") %>
+      </div>
     </div>
+
+    <br/>
+
+    <div class="form-group">
+      <div class="col-md-1"><%= f.label :modelo_id, 'Modelo' %></div>
+      <div class="col-md-2">
+        <%= f.grouped_collection_select(:modelo_id, @marcas,:modelos, :descricao,:id, :descricao,prompt: "Selecione um modelo") %>
+      </div>
+    </div>
+
+    <br/>
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :placa %></div>
-      <div class="col-md-10"><%= f.text_field :placa %></div>
+      <div class="col-md-10"><%= f.text_field :placa %>(Ex: XXX-9999)</div>
     </div>
 
     <div class="form-group">
@@ -34,9 +52,16 @@
     </div>
 
     <div class="form-group">
-      <div class="col-md-2"><%= f.label :cor_veiculo_id,'Cor' %></div>
-      <div class="col-md-10"><%= f.text_field :cor_veiculo_id %></div>
+      <div class="col-md-1"><%= f.label :cor_veiculo_id, 'Cor' %></div>
+      <div class="col-md-2">
+        <%= f.collection_select(:cor_veiculo_id, @cores,:id, :descricao,prompt: "Selecione uma cor") %>
+      </div>
     </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :chassi %></div>
@@ -45,18 +70,15 @@
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :peso %></div>
-      <div class="col-md-10"><%= f.text_field :peso %></div>
+      <div class="col-md-10"><%= f.text_field :peso %> Kg</div>
     </div>
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :capacidade_carga,'Capacidade de carga' %></div>
-      <div class="col-md-10"><%= f.text_field :capacidade_carga %></div>
+      <div class="col-md-10"><%= f.text_field :capacidade_carga %> Kg</div>
     </div>
 
-    <div class="form-group">
-      <div class="col-md-2"><%= f.label :tipo_veiculo_id %></div>
-      <div class="col-md-10"><%= f.text_field :tipo_veiculo_id %></div>
-    </div>
+    
   </div>
 
   <br/>

@@ -1,0 +1,75 @@
+<%= form_for(@condutor) do |f| %>
+  <% if @condutor.errors.any? %>
+	  <div class="alert alert-danger alert-dismissable">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <ul>
+	    <% @condutor.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :nome %></div>
+      <div class="col-md-10"><%= f.text_field :nome %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :cnh %></div>
+      <div class="col-md-10"><%= f.text_field :cnh %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :categoria_cnh_id, 'Categoria cnh' %></div>
+      <div class="col-md-2">
+        <%= f.collection_select(:categoria_cnh_id, @categorias,:id, :descricao,prompt: "Selecione uma categoria") %>
+      </div>
+    </div>
+  
+    <br/>
+    <br/> 
+    <br/>
+    <br/>
+
+    <div class="form-group">
+      <%if @condutor.vencimento_cnh.present?%>
+        <div class="form-group">
+          <div class="col-md-2"><%= f.label :vencimento_cnh,'Vencimento cnh' %></div>
+          <div class="col-md-2"><%= f.text_field :vencimento_cnh,:value =>l(@condutor.vencimento_cnh, :format => :default),:class => 'datepicker form-control',:size => 10,:onkeyup => 'mascaraData(this);',:id => "datepicker" %></div>
+        </div>
+      <%else%>
+        <div class="form-group">
+          <div class="col-md-2"><%= f.label :vencimento_cnh,'Vencimento cnh' %></div>
+          <div class="col-md-2"><%= f.text_field :vencimento_cnh,:class => 'datepicker form-control',:size => 10,:onkeyup => 'mascaraData(this);',:id => "datepicker" %></div>
+        </div>
+      <%end%>
+      
+    </div>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary", :value => "Salvar" %>
+    </div>
+  </div>
+  
+<% end %>

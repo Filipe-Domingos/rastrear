@@ -6,6 +6,8 @@ gem 'bootstrap-datepicker-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-stack_explorer'
+gem "jquery-inputmask-rails"
+gem 'jquery-ui-rails'
 	
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
