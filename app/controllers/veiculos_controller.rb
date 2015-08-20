@@ -1,10 +1,15 @@
 class VeiculosController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
 
   # GET /veiculos
   # GET /veiculos.json
   def index
-    @veiculos = Veiculo.all
+    
+    veiculos_scope = Veiculo.all
+    veiculos_scope = veiculos_scope.where("LOWER(#{params[:field]}) LIKE '%#{params[:filter].downcase}%'") if params[:filter]
+    @veiculos = smart_listing_create(:veiculos, veiculos_scope, partial: "veiculos/listing", default_sort: {placa: "asc"})
   end
 
   # GET /veiculos/1

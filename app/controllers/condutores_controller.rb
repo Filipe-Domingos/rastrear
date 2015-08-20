@@ -25,13 +25,17 @@ class CondutoresController < ApplicationController
   # POST /condutores
   # POST /condutores.json
   def create
+    params.require(:condutor)[:telefone] = params.require(:condutor)[:telefone].gsub(/[-]/,'')
     @condutor = Condutor.new(condutor_params)
 
     respond_to do |format|
       if @condutor.save
-        format.html { redirect_to @condutor, notice: 'Condutor cadastrado com sucesso.' }
+        format.html { redirect_to new_condutor_path, notice: 'Condutor cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @condutor }
       else
+
+        @categorias = CategoriaCnh.all.order(:descricao)
+
         format.html { render :new }
         format.json { render json: @condutor.errors, status: :unprocessable_entity }
       end
@@ -70,6 +74,6 @@ class CondutoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condutor_params
-      params.require(:condutor).permit(:nome, :cnh, :vencimento_cnh, :categoria_cnh_id)
+      params.require(:condutor).permit(:nome, :cnh, :vencimento_cnh, :categoria_cnh_id,:ddd, :telefone)
     end
 end

@@ -9,4 +9,16 @@ class Veiculo < ActiveRecord::Base
   validates :renavam, format:{with: VeiculosHelper::RENAVAM,
       message: ' deve possuir 11 digitos.'}
 
+  def self.combo_manutencao_preventiva
+    lista = Veiculo.all.order(created_at: "desc")
+    veiculos = Array.new
+
+    lista.each do |l|
+      hash = {id: l.id,descricao: l.placa << " - " << l.modelo.marca.descricao << " " << l.modelo.descricao}
+      veiculos << hash
+    end
+    
+    veiculos
+  end
+
 end

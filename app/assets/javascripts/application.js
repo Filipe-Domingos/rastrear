@@ -14,19 +14,28 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.inputmask
-//= require jquery-ui/datepicker
+//= require jquery.ui.all
 //= require bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js
+//= require smart_listing
+//= require underscore
+//= require gmaps/google
 
-$.fn.datepicker.defaults.todayHighlight = true;
-$.fn.datepicker.defaults.format = "dd/mm/yyyy";
-$.fn.datepicker.defaults.language = "pt-BR";
-$.fn.datepicker.defaults.autoclose = true;
+
+//$.fn.datepicker.defaults.todayHighlight = true;
+//$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+//$.fn.datepicker.defaults.language = "pt-BR";
+//$.fn.datepicker.defaults.autoclose = true;
 
 $(function() {
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    dateFormat: 'dd/mm/yy',
+    setDate: "new Date()",
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+  });
 });
 
 function mascaraData(campoData){
@@ -42,4 +51,50 @@ function mascaraData(campoData){
       campoData.value = data;
       return true;
     }
+    if (data.length == 11){
+      data = data.substr(0,10);
+      campoData.value = data;
+      return true;
+    }
 }
+
+function mascaraDDD(component){
+               
+    var ddd = component.value;
+    if (ddd.length == 3){
+      ddd = ddd.substr(0,2);
+      component.value = ddd;
+      return true;
+    }
+}
+
+function mascaraTelefone(component){
+               
+    var telefone = component.value;
+    if (telefone.length == 5){
+      telefone = telefone + '-';
+      component.value = telefone;
+      return true;
+    }
+    if (telefone.length == 11){
+      telefone = telefone.substr(0,10);
+      component.value = telefone;
+      return true;
+    }
+}
+
+$(document).ready(function(){
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+  });
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
+  handler.map.centerOn(marker);
+};

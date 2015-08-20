@@ -1,14 +1,14 @@
-  <div class="page-header">
+<div class="page-header">
 
-    <%= link_to new_veiculo_path, :class => 'btn btn-default' do %>
+    <%= link_to new_manutencao_preventiva_path, :class => 'btn btn-default' do %>
       <span class="glyphicon glyphicon-plus"></span>
-      Cadastrar veículo
+      Cadastrar manutenção
     <% end %>
 
-    <h1>Cadastro de veículos</h1>
+    <h1>Cadastro de manutenção preventiva</h1>
   </div>
 
-  <%= smart_listing_controls_for(:veiculos, {class: "form-inline text-left"}) do %>
+  <%= smart_listing_controls_for(:manutencoes, {class: "form-inline text-left"}) do %>
     <fieldset> 
     <legend>Busca</legend>
       <%= label_tag :placa %>
@@ -21,10 +21,6 @@
     </fieldset>
   <% end %>
   <br />
-<%= smart_listing_render(:veiculos) %>
-
-  
-
-<br>
+<%= smart_listing_render(:manutencoes) %>
 
 

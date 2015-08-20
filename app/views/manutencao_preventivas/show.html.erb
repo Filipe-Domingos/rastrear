@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data manutencao:</strong>
+  <%= @manutencao_preventiva.data_manutencao %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @manutencao_preventiva.email %>
+</p>
+
+<p>
+  <strong>Email enviado:</strong>
+  <%= @manutencao_preventiva.email_enviado %>
+</p>
+
+<p>
+  <strong>Kilometragem manutencao:</strong>
+  <%= @manutencao_preventiva.kilometragem_manutencao %>
+</p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @manutencao_preventiva.veiculo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @manutencao_preventiva.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_manutencao_preventiva_path(@manutencao_preventiva) %> |
+<%= link_to 'Back', manutencao_preventivas_path %>

@@ -7,7 +7,9 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-stack_explorer'
 gem "jquery-inputmask-rails"
-gem 'jquery-ui-rails'
+gem 'jquery-ui-sass-rails'
+gem "smart_listing"
+gem 'gmaps4rails'
 	
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

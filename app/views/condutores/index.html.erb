@@ -19,9 +19,9 @@
           <tr>
             <td><%= condutor.nome %></td>
             <td><%= condutor.cnh %></td>
-            <td><%= condutor.vencimento %></td>
-            <td><%= condutor.categoria_cnh %></td>
-            <td><%= condutor.ddd %> - <%= condutor.telefone %></td>
+            <td><%=l condutor.vencimento_cnh %></td>
+            <td><%= condutor.categoria_cnh.descricao %></td>
+            <td>(<%= condutor.ddd %>)  <%= condutor.telefone %></td>
             <td><%= link_to 'Editar', edit_condutor_path(condutor) %></td>
             <td><%= link_to 'Excluir', condutor, method: :delete, data: { confirm: 'Tem certeza que deseja remover este condutor?' } %></td>
           </tr>
