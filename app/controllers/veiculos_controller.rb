@@ -28,6 +28,10 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos/1/edit
   def edit
+    @marcas = Marca.all.order(:descricao)
+    @modelos = Modelo.all.order(:descricao)
+    @cores = CorVeiculo.all.order(:descricao)
+    @tipo_veiculos = TipoVeiculo.all.order(:descricao)
   end
 
   # POST /veiculos
@@ -60,6 +64,11 @@ class VeiculosController < ApplicationController
         format.html { redirect_to @veiculo, notice: 'Veiculo atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @veiculo }
       else
+        @marcas = Marca.all.order(:descricao)
+        @modelos = Modelo.all.order(:descricao)
+        @cores = CorVeiculo.all.order(:descricao)
+        @tipo_veiculos = TipoVeiculo.all.order(:descricao)
+
         format.html { render :edit }
         format.json { render json: @veiculo.errors, status: :unprocessable_entity }
       end

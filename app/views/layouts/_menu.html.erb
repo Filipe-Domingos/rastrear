@@ -1,0 +1,16 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-th-list"></span>
+    Menu
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="veiculos">Veículos</a></li>
+    <li><a href="manutencao_preventivas">Manutenção preventiva</a></li>
+  </ul>
+</div>
+
+<%= link_to root_url, :class => 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-map-marker"></span>
+  Mapa e veículos
+<% end %>

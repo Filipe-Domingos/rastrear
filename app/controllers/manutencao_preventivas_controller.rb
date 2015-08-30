@@ -33,7 +33,7 @@ class ManutencaoPreventivasController < ApplicationController
 
     respond_to do |format|
       if @manutencao_preventiva.save
-        format.html { redirect_to @manutencao_preventiva, notice: 'Manutencao preventiva was successfully created.' }
+        format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @manutencao_preventiva }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class ManutencaoPreventivasController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao_preventiva.update(manutencao_preventiva_params)
-        format.html { redirect_to @manutencao_preventiva, notice: 'Manutencao preventiva was successfully updated.' }
+        format.html { redirect_to @manutencao_preventiva, notice: 'Manutenção preventiva atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @manutencao_preventiva }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class ManutencaoPreventivasController < ApplicationController
   def destroy
     @manutencao_preventiva.destroy
     respond_to do |format|
-      format.html { redirect_to manutencao_preventivas_url, notice: 'Manutencao preventiva was successfully destroyed.' }
+      format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
