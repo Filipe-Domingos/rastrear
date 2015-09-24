@@ -3,9 +3,13 @@ pt-BR:
     errors:
     models:
       veiculo: "Veiculo"
+      manutencao_preventiva: "Manutenção preventiva"
     attributes:
       veiculo:
         tipo_veiculo: "Tipo de veiculo"
+      manutencao_preventiva:
+        data_manutencao: "Data da manutenção"
+        descricao: "Descrição"
   date:
     abbr_day_names:
     - Dom

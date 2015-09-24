@@ -1,3 +1,80 @@
 // Place all the styles related to the manutencao_preventivas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new_manutencao_preventiva{
+  background: #ededed;
+  border: 2px solid #ccc;
+  display: inline;
+  float: left;
+  margin-left: 25%;
+  text-align: center;
+  width: 460px;
+}
+
+#new_manutencao_preventiva div{
+  float: left;
+}
+#new_manutencao_preventiva .col-md-1, #new_manutencao_preventiva .col-md-2{
+  margin-left: 10px;
+  text-align: left;
+} 
+
+.col-md-10{ 
+  width: 320px;
+  text-align: left;
+}
+.form-group {
+  width: 500px;
+}
+#new_manutencao_preventiva .col-md-2 ,#new_manutencao_preventiva .col-md-1{
+  width: 27.667%;
+}
+.alert-danger {
+  width: 457px;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+  text-align: center;
+}
+
+#edit_manutencao_preventiva_6, #edit_manutencao_preventiva_8{  
+  background: #ededed;
+  border: 2px solid #ccc;
+  display: inline;
+  float: left;
+  margin-left: 30%;
+  text-align: center;
+  width: 460px; 
+}
+#edit_manutencao_preventiva_6  div, #edit_manutencao_preventiva_8  div{
+  float: left;
+}
+#edit_manutencao_preventiva_6  .col-md-1, #edit_manutencao_preventiva_6  .col-md-2,#edit_manutencao_preventiva_8  .col-md-1, #edit_manutencao_preventiva_8  .col-md-2{
+  margin-left: 10px;
+  text-align: left;
+  
+}
+.col-md-10 {
+  width: 320px;
+  text-align: left;
+}
+.form-group {
+  width: 460px;
+}
+#edit_manutencao_preventiva_6  .col-md-2 ,#edit_manutencao_preventiva_6 .col-md-1,#edit_manutencao_preventiva_8  .col-md-2 ,#edit_manutencao_preventiva_8 .col-md-1{
+  width: 27.667%;
+}
+#new_manutencao_preventiva .col-sm-offset-2, #edit_manutencao_preventiva_8 .col-sm-offset-2 {
+  width: 0%;
+  margin-left: 175px;
+  
+}
+
+.edit_manutencao_preventiva .col-sm-offset-2{
+  width: 0%;
+  margin-left: 175px;
+}
+

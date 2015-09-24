@@ -10,3 +10,6 @@ jQuery ->
       $('#veiculo_modelo_id').html(options)
     else
       $('#veiculo_modelo_id').empty()
+
+
+

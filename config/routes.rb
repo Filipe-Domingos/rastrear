@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :usuarios
   resources :manutencao_preventivas
   get 'home/index'
-  root "home#index"
+  root "home#login"
+
+  post 'login/logar' => 'login#logar'
 
   resources :condutores
   resources :veiculos

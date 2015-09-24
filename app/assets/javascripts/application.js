@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require jquery.inputmask
@@ -19,6 +18,7 @@
 //= require smart_listing
 //= require underscore
 //= require gmaps/google
+//= require_tree .
 
 
 //$.fn.datepicker.defaults.todayHighlight = true;
@@ -27,9 +27,9 @@
 //$.fn.datepicker.defaults.autoclose = true;
 
 $(function() {
-  $('.datepicker').datepicker({
+  $('#date').datepicker({
     dateFormat: 'dd/mm/yy',
-    setDate: "new Date()",
+    minDate: "new Date()",
     dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
     dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
     dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
@@ -39,8 +39,6 @@ $(function() {
 
   
 });
-
-
 
 function mascaraData(campoData){
                
@@ -87,18 +85,4 @@ function mascaraTelefone(component){
     }
 }
 
-$(document).ready(function(){
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    if(navigator.geolocation)
-    navigator.geolocation.getCurrentPosition(displayOnMap);
-  });
-});
 
-function displayOnMap(position){
-  var marker = handler.addMarker({
-    lat: position.coords.latitude,
-    lng: position.coords.longitude
-  });
-  handler.map.centerOn(marker);
-};

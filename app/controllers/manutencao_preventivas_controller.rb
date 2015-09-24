@@ -24,18 +24,22 @@ class ManutencaoPreventivasController < ApplicationController
 
   # GET /manutencao_preventivas/1/edit
   def edit
+    @veiculos = Veiculo.combo_manutencao_preventiva
   end
 
   # POST /manutencao_preventivas
   # POST /manutencao_preventivas.json
   def create
+    
     @manutencao_preventiva = ManutencaoPreventiva.new(manutencao_preventiva_params)
 
     respond_to do |format|
       if @manutencao_preventiva.save
-        format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva cadastrada com sucesso.' }
+        format.html { redirect_to new_manutencao_preventiva_path, notice: 'Manutenção preventiva cadastrada com sucesso.' }
         format.json { render :show, status: :created, location: @manutencao_preventiva }
       else
+        @veiculos = Veiculo.combo_manutencao_preventiva
+
         format.html { render :new }
         format.json { render json: @manutencao_preventiva.errors, status: :unprocessable_entity }
       end
@@ -47,9 +51,11 @@ class ManutencaoPreventivasController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao_preventiva.update(manutencao_preventiva_params)
-        format.html { redirect_to @manutencao_preventiva, notice: 'Manutenção preventiva atualizada com sucesso.' }
+        format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @manutencao_preventiva }
       else
+        @veiculos = Veiculo.combo_manutencao_preventiva
+
         format.html { render :edit }
         format.json { render json: @manutencao_preventiva.errors, status: :unprocessable_entity }
       end

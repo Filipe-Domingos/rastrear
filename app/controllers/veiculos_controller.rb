@@ -8,7 +8,7 @@ class VeiculosController < ApplicationController
   def index
     
     veiculos_scope = Veiculo.all
-    veiculos_scope = veiculos_scope.where("LOWER(#{params[:field]}) LIKE '%#{params[:filter].downcase}%'") if params[:filter]
+    veiculos_scope = veiculos_scope.where("LOWER(placa) LIKE '%#{params[:filter].downcase}%'") if params[:filter]
     @veiculos = smart_listing_create(:veiculos, veiculos_scope, partial: "veiculos/listing", default_sort: {placa: "asc"})
   end
 
@@ -42,7 +42,7 @@ class VeiculosController < ApplicationController
     
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to veiculos_url, notice: 'Veiculo cadastrado com sucesso.' }
+        format.html { render :new, notice: 'Veiculo cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @veiculo }
       else
         @marcas = Marca.all.order(:descricao)

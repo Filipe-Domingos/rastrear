@@ -27,12 +27,12 @@
       <%if @manutencao_preventiva.data_manutencao.present?%>
         <div class="form-group">
           <div class="col-md-2"><%= f.label :data_manutencao,'Data da manutenção' %></div>
-          <div class="col-md-2"><%= f.text_field :data_manutencao,:value =>l(@manutencao_preventiva.data_manutencao, :format => :default),:class => 'datepicker form-control',:size => 10,:onkeyup => 'mascaraData(this);',:id => "datepicker" %></div>
+          <div class="col-md-2"><%= f.text_field :data_manutencao,:value =>l(@manutencao_preventiva.data_manutencao, :format => :default),:class => 'datepicker form-control',:size => 10,:onkeyup => 'mascaraData(this);',:id => "date" %></div>
         </div>
       <%else%>
         <div class="form-group">
           <div class="col-md-2"><%= f.label :data_manutencao,'Data da manutenção' %></div>
-          <div class="col-md-2"><%= f.text_field :data_manutencao,:class => 'datepicker form-control',:size => 10,:onkeyup => 'mascaraData(this);',:id => "datepicker" %></div>
+          <div class="col-md-2"><%= f.text_field :data_manutencao,:class => 'datepicker',:size => 10,:onkeyup => 'mascaraData(this);',:id => "date" %></div>
         </div>
       <%end%>
     </div>
