@@ -8,7 +8,7 @@ class VeiculosController < ApplicationController
   def index
     
     veiculos_scope = Veiculo.all
-    veiculos_scope = veiculos_scope.where("LOWER(placa) LIKE '%#{params[:filter].downcase}%'") if params[:filter]
+    veiculos_scope = veiculos_scope.where("UPPER(placa) LIKE '%#{params[:filter]}%'") if params[:filter]
     @veiculos = smart_listing_create(:veiculos, veiculos_scope, partial: "veiculos/listing", default_sort: {placa: "asc"})
   end
 
@@ -39,6 +39,7 @@ class VeiculosController < ApplicationController
   def create
     
     @veiculo = Veiculo.new(veiculo_params)
+    @veiculo.placa = @veiculo.placa.upcase
     
     respond_to do |format|
       if @veiculo.save
@@ -80,7 +81,7 @@ class VeiculosController < ApplicationController
   def destroy
     @veiculo.destroy
     respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Veiculo excluido com sucesso.' }
+      format.html { redirect_to veiculos_url }
       format.json { head :no_content }
     end
   end

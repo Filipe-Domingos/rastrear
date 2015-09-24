@@ -56,7 +56,7 @@ class MarcasController < ApplicationController
   def destroy
     @marca.destroy
     respond_to do |format|
-      format.html { redirect_to marcas_url, notice: 'Marca excluída com sucesso.' }
+      format.html { redirect_to marcas_url }
       format.json { head :no_content }
     end
   end

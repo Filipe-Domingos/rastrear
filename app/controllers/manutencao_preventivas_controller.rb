@@ -67,7 +67,7 @@ class ManutencaoPreventivasController < ApplicationController
   def destroy
     @manutencao_preventiva.destroy
     respond_to do |format|
-      format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva excluída com sucesso.' }
+      format.html { redirect_to manutencao_preventivas_url }
       format.json { head :no_content }
     end
   end

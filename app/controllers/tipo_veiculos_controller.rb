@@ -56,7 +56,7 @@ class TipoVeiculosController < ApplicationController
   def destroy
     @tipo_veiculo.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_veiculos_url, notice: 'Tipo veiculo was successfully destroyed.' }
+      format.html { redirect_to tipo_veiculos_url }
       format.json { head :no_content }
     end
   end

@@ -1,10 +1,14 @@
 class CondutoresController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_condutor, only: [:show, :edit, :update, :destroy]
 
   # GET /condutores
   # GET /condutores.json
   def index
-    @condutores = Condutor.all
+    condutores_scope = Condutor.all
+    condutores_scope = condutores_scope.where("LOWER(nome) LIKE '%#{params[:filter].downcase}%'") if params[:filter]
+    @condutores = smart_listing_create(:condutores, condutores_scope, partial: "condutores/listing", default_sort: {nome: "asc"})
   end
 
   # GET /condutores/1
@@ -20,6 +24,7 @@ class CondutoresController < ApplicationController
 
   # GET /condutores/1/edit
   def edit
+    @categorias = CategoriaCnh.all.order(:descricao)
   end
 
   # POST /condutores
@@ -47,9 +52,11 @@ class CondutoresController < ApplicationController
   def update
     respond_to do |format|
       if @condutor.update(condutor_params)
-        format.html { redirect_to @condutor, notice: 'Condutor atualizado com sucesso.' }
+        format.html { redirect_to edit_condutor_path(@condutor), notice: 'Condutor atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @condutor }
       else
+        @categorias = CategoriaCnh.all.order(:descricao)
+
         format.html { render :edit }
         format.json { render json: @condutor.errors, status: :unprocessable_entity }
       end
@@ -61,7 +68,7 @@ class CondutoresController < ApplicationController
   def destroy
     @condutor.destroy
     respond_to do |format|
-      format.html { redirect_to condutores_url, notice: 'Condutor removido com sucesso.' }
+      format.html { redirect_to condutores_url }
       format.json { head :no_content }
     end
   end
