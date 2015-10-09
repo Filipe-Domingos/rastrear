@@ -1,0 +1,5 @@
+<h1>New Manutencao Preventiva</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', manutencao_preventivas_path %>

@@ -27,6 +27,12 @@
 //$.fn.datepicker.defaults.autoclose = true;
 
 $(function() {
+  $( "#accordion" ).accordion({
+    heightStyle: "fill"
+  });
+});
+
+$(function() {
   $('#date').datepicker({
     dateFormat: 'dd/mm/yy',
     minDate: "new Date()",

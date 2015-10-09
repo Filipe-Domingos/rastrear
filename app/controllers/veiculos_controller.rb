@@ -43,7 +43,7 @@ class VeiculosController < ApplicationController
     
     respond_to do |format|
       if @veiculo.save
-        format.html { render :new, notice: 'Veiculo cadastrado com sucesso.' }
+        format.html { redirect_to new_veiculo_path, notice: 'Veiculo cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @veiculo }
       else
         @marcas = Marca.all.order(:descricao)
@@ -62,7 +62,7 @@ class VeiculosController < ApplicationController
   def update
     respond_to do |format|
       if @veiculo.update(veiculo_params)
-        format.html { redirect_to @veiculo, notice: 'Veiculo atualizado com sucesso.' }
+        format.html { redirect_to edit_veiculo_path(@veiculo) , notice: 'Veiculo atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @veiculo }
       else
         @marcas = Marca.all.order(:descricao)

@@ -7,9 +7,9 @@
   border: 2px solid #ccc;
   display: inline;
   float: left;
-  margin-left: 25%;
+  margin-left: 29%;
   text-align: center;
-  width: 460px;
+  width: 390px;
 }
 
 #new_marca div{
@@ -20,11 +20,13 @@
   margin-left: 10px;
   text-align: left;
 }
-
-#new_marca .col-md-2 ,#new_marca .col-md-1{
-  width: 27.667%;
+#new_marca .col-md-1{
+  width: 19.667%;
 }
 
+#new_marca .col-md-2{
+  width: 50.667%;
+}
 #new_marca .col-sm-offset-2{
   width: 0%;
   margin-left: 175px;
@@ -37,9 +39,9 @@
   border: 2px solid #ccc;
   display: inline;
   float: left;
-  margin-left: 25%;
+  margin-left: 29%;
   text-align: center;
-  width: 460px;
+  width: 390px;
 }
 
 .edit_marca div{
@@ -51,10 +53,15 @@
   text-align: left;
 } 
 
-.edit_marca .col-md-2 ,.edit_marca .col-md-1{
-  width: 27.667%;
+
+.edit_marca .col-md-1{
+  width: 19.667%;
 }
 
+.edit_marca .col-md-2{
+  width: 50.667%;
+}
+ 
 .edit_marca .col-sm-offset-2{
   width: 0%;
   margin-left: 175px;

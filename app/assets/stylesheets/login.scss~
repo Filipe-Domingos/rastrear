@@ -1,0 +1,38 @@
+// Place all the styles related to the login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dropdown{
+  float:left; 
+  margin-right:10px;
+}
+.form-horizontal{
+  width: 350px;   
+  height: 200px;
+  position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-150px;
+	margin-left:-200px;    
+  
+}
+.panel{
+  width: 350px;
+  height: 200px;
+  
+} 
+
+.panel-body{
+  float:left;
+  width:250px;
+  margin-left:15px;
+}
+
+.form-group{
+  width:100%;
+  text-align:center;
+}
+.topo{
+ background:#428BCA;
+ padding:5px;     
+}

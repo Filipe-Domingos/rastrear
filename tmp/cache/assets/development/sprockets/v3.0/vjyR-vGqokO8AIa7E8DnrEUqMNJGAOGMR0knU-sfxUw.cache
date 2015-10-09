@@ -1,0 +1,18 @@
+I"×(function() {
+  jQuery(function() {
+    var modelos;
+    modelos = $('#veiculo_modelo_id').html();
+    return $('#marca_id').change(function() {
+      var marca, options;
+      marca = $('#marca_id :selected').text();
+      options = $(modelos).filter("optgroup[label='" + marca + "']").html();
+      if (options) {
+        return $('#veiculo_modelo_id').html(options);
+      } else {
+        return $('#veiculo_modelo_id').empty();
+      }
+    });
+  });
+
+}).call(this);
+:ET

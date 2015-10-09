@@ -42,7 +42,7 @@ class MarcasController < ApplicationController
   def update
     respond_to do |format|
       if @marca.update(marca_params)
-        format.html { redirect_to marcas_url, notice: 'Marca alterada com sucesso.' }
+        format.html { redirect_to edit_marca_path(@marca), notice: 'Marca alterada com sucesso.' }
         format.json { render :show, status: :ok, location: @marca }
       else
         format.html { render :edit }

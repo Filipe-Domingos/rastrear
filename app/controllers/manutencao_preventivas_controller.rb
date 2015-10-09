@@ -51,7 +51,7 @@ class ManutencaoPreventivasController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao_preventiva.update(manutencao_preventiva_params)
-        format.html { redirect_to manutencao_preventivas_url, notice: 'Manutenção preventiva atualizada com sucesso.' }
+        format.html { redirect_to edit_manutencao_preventiva_path(@manutencao_preventiva), notice: 'Manutenção preventiva atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @manutencao_preventiva }
       else
         @veiculos = Veiculo.combo_manutencao_preventiva

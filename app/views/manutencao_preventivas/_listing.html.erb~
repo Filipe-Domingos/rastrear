@@ -1,0 +1,41 @@
+<% unless smart_listing.empty? %>
+  <%= smart_listing.paginate %>
+  <%= smart_listing.pagination_per_page_links %>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Data da manutenção</th>
+        <th>Kilometragem da manutenção</th>
+        <th>Veículo</th>
+        <th>Descrição</th>
+        <th>Email do responsável</th>
+        <th>Email enviado?</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, smart_listing.collection) do |manutencao_preventiva| %>
+        <td><%=manutencao_preventiva.data_manutencao.present? ? l manutencao_preventiva.data_manutencao : nil%></td>
+        <td><%= manutencao_preventiva.kilometragem_manutencao %></td>
+        <td><%= manutencao_preventiva.veiculo.modelo.marca.descricao %> <%= manutencao_preventiva.veiculo.modelo.descricao %></td>
+        <td><%= manutencao_preventiva.descricao %></td>
+        <td><%= manutencao_preventiva.email %></td>
+        <td><%= manutencao_preventiva.email_enviado %></td>
+        
+        <td>
+          <%= link_to edit_manutencao_preventiva_path(manutencao_preventiva) do %>
+            <span class="glyphicon glyphicon-search"></span> Editar
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Excluir', manutencao_preventiva, method: :delete, data: { confirm: 'Tem certeza que deseja remover este registro?' } %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="alert alert-info">
+    Não encontrado.    
+  </p>
+<% end %>

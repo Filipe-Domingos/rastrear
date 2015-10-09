@@ -44,7 +44,7 @@ class ModelosController < ApplicationController
   def update
     respond_to do |format|
       if @modelo.update(modelo_params)
-        format.html { redirect_to  modelos_url, notice: 'Modelo alterado com sucesso.' }
+        format.html { redirect_to  edit_modelo_path(@modelo), notice: 'Modelo alterado com sucesso.' }
         format.json { render :show, status: :ok, location: @modelo }
       else
         format.html { render :edit }

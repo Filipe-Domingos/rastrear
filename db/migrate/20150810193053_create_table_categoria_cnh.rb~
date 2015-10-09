@@ -1,0 +1,7 @@
+class CreateTableCategoriaCnh < ActiveRecord::Migration
+  def change
+    create_table :table_categoria_cnhs do |t|
+      t.string :descricao
+    end
+  end
+end
