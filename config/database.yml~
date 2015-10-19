@@ -84,8 +84,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-#production:
-#   <<: *default
-#   database: rastrear_production
-#   username: rastrear
-#   password: <%= ENV['RASTREAR_DATABASE_PASSWORD'] %>
+production:
+   <<: *default
+   database: rastrear_production
+   username: rastrear
+   password: <%= ENV['RASTREAR_DATABASE_PASSWORD'] %>

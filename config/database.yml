@@ -86,6 +86,6 @@ test:
 #
 production:
    <<: *default
-   database: rastrear_production
-   username: rastrear
-   password: <%= ENV['RASTREAR_DATABASE_PASSWORD'] %>
+   url: postgres://ptxpquowdelcng:cew_KY8EDAyiGKfJgbSE1TOKfz@ec2-54-225-192-128.compute-1.amazonaws.com:5432/dalvgefbht5at3
+   username: ptxpquowdelcng
+   password: cew_KY8EDAyiGKfJgbSE1TOKfz
