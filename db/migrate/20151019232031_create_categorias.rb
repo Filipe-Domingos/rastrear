@@ -39,7 +39,6 @@ class CreateCategorias < ActiveRecord::Migration
       c9.descricao = "AE"
       c9.save
 
-      array.save_all
     end
   end
 end
