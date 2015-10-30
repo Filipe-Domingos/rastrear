@@ -28,7 +28,8 @@ class MarcasController < ApplicationController
 
     respond_to do |format|
       if @marca.save
-        format.html { redirect_to new_marca_path, notice: 'Marca cadastrada com sucesso.' }
+        flash.now[:notice] = 'Marca cadastrada com sucesso.'
+        format.html { redirect_to new_marca_path  }
         format.json { render :show, status: :created, location: @marca }
       else
         format.html { render :new }
@@ -42,7 +43,8 @@ class MarcasController < ApplicationController
   def update
     respond_to do |format|
       if @marca.update(marca_params)
-        format.html { redirect_to marcas_url, notice: 'Marca alterada com sucesso.' }
+        flash.now[:notice] = 'Marca alterada com sucesso.'
+        format.html { redirect_to edit_marca_path(@marca) }
         format.json { render :show, status: :ok, location: @marca }
       else
         format.html { render :edit }

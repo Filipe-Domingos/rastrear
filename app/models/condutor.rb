@@ -2,6 +2,8 @@ class Condutor < ActiveRecord::Base
   belongs_to :categoria_cnh
 
   validates :nome , presence: true 
-  validates :ddd , length:{maximum: 2}
-  validates :telefone , length:{in: 8..9}
+  validates :telefone , length:{is: 15}
+  validates :cnh, numericality: { only_integer: true },length:{is: 11}
+
+  
 end

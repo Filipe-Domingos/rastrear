@@ -18,7 +18,7 @@
       <%= content_tag_for(:tr, smart_listing.collection) do |manutencao_preventiva| %>
         <td><%=manutencao_preventiva.data_manutencao.present? ? (l manutencao_preventiva.data_manutencao) : nil%></td>
         <td><%= manutencao_preventiva.kilometragem_manutencao %></td>
-        <td><%= manutencao_preventiva.veiculo.modelo.marca.descricao %> <%= manutencao_preventiva.veiculo.modelo.descricao %></td>
+        <td><%=manutencao_preventiva.veiculo.placa %> - <%= manutencao_preventiva.veiculo.modelo.marca.descricao %> <%= manutencao_preventiva.veiculo.modelo.descricao %></td>
         <td><%= manutencao_preventiva.descricao %></td>
         <td><%= manutencao_preventiva.email %></td>
         <td><%= manutencao_preventiva.email_enviado %></td>

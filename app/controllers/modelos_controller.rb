@@ -30,7 +30,8 @@ class ModelosController < ApplicationController
 
     respond_to do |format|
       if @modelo.save
-        format.html { redirect_to new_modelo_path, notice: 'Modelo cadastrado com sucesso.' }
+        flash.now[:notice] = 'Modelo cadastrado com sucesso.'
+        format.html { redirect_to modelos_path }
         format.json { render :show, status: :created, location: @modelo }
       else
         format.html { render :new }
@@ -44,7 +45,8 @@ class ModelosController < ApplicationController
   def update
     respond_to do |format|
       if @modelo.update(modelo_params)
-        format.html { redirect_to  edit_modelo_path(@modelo), notice: 'Modelo alterado com sucesso.' }
+        flash.now[:notice] = 'Modelo alterado com sucesso.'
+        format.html { redirect_to  modelos_path  }
         format.json { render :show, status: :ok, location: @modelo }
       else
         format.html { render :edit }

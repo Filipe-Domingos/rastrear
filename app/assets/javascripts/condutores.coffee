@@ -6,3 +6,5 @@ jQuery ->
   $("#datepicker").datepicker({
     minDate: +1;
   })
+
+

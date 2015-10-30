@@ -35,7 +35,8 @@ class ManutencaoPreventivasController < ApplicationController
 
     respond_to do |format|
       if @manutencao_preventiva.save
-        format.html { redirect_to new_manutencao_preventiva_path, notice: 'Manutenção preventiva cadastrada com sucesso.' }
+        flash.now[:notice] = 'Manutenção preventiva cadastrada com sucesso.'
+        format.html { redirect_to manutencao_preventivas_path  }
         format.json { render :show, status: :created, location: @manutencao_preventiva }
       else
         @veiculos = Veiculo.combo_manutencao_preventiva
@@ -51,7 +52,8 @@ class ManutencaoPreventivasController < ApplicationController
   def update
     respond_to do |format|
       if @manutencao_preventiva.update(manutencao_preventiva_params)
-        format.html { redirect_to edit_manutencao_preventiva_path(@manutencao_preventiva), notice: 'Manutenção preventiva atualizada com sucesso.' }
+        flash.now[:notice] = 'Manutenção preventiva atualizada com sucesso.'
+        format.html { redirect_to manutencao_preventivas_path  }
         format.json { render :show, status: :ok, location: @manutencao_preventiva }
       else
         @veiculos = Veiculo.combo_manutencao_preventiva

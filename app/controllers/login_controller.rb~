@@ -3,7 +3,7 @@ class LoginController < ApplicationController
   def logar
     email = params[:email]
     senha = params[:senha]
-binding.pry
+
     @usuario = Usuario.where(email: email,senha: senha)
 
     respond_to do |format|

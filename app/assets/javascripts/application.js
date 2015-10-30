@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require jquery.ui.all
 //= require bootstrap
 //= require smart_listing
@@ -77,18 +82,38 @@ function mascaraDDD(component){
 }
 
 function mascaraTelefone(component){
-               
-    var telefone = component.value;
-    if (telefone.length == 5){
-      telefone = telefone + '-';
-      component.value = telefone;
-      return true;
-    }
-    if (telefone.length == 11){
-      telefone = telefone.substr(0,10);
-      component.value = telefone;
-      return true;
-    }
+
+    var v = component.value;
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/(\d{2})(\d{1,10})$/,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d{5})(\d{1,5})$/,"$1-$2");
+    if (v.length >= 14){
+      component.value = v.substr(0,15);
+    }else{
+      component.value = v;
+    }   
 }
+
+
+$(document).ready(function(){
+   $("#veiculo_placa").inputmask("AAA-9999");
+});
+
+
+function somenteNumero(e){
+  var tecla=(window.event)?event.keyCode:e.which;
+   
+  if((tecla>47 && tecla<58)) 
+    return true;
+  else{
+      if (tecla==8 || tecla==0) 
+      return true;
+      else 
+      return false;
+  }
+     
+}
+ 
+
 
 

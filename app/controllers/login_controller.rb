@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 
     respond_to do |format|
       if @usuario.present?
-        format.html { redirect_to '/home/index', notice: 'Usuário logado com sucesso.' }
+        format.html { redirect_to '/home/index' }
         format.json { render :show, status: :created, location: @condutor }
       else
 

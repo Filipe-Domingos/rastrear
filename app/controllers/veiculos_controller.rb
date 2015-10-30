@@ -32,6 +32,8 @@ class VeiculosController < ApplicationController
     @modelos = Modelo.all.order(:descricao)
     @cores = CorVeiculo.all.order(:descricao)
     @tipo_veiculos = TipoVeiculo.all.order(:descricao)
+    
+    @veiculo.marca_id = @veiculo.modelo.marca.id
   end
 
   # POST /veiculos
@@ -39,11 +41,12 @@ class VeiculosController < ApplicationController
   def create
     
     @veiculo = Veiculo.new(veiculo_params)
-    @veiculo.placa = @veiculo.placa.upcase
+    @veiculo.marca_id = params[:marca_id]
     
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to new_veiculo_path, notice: 'Veiculo cadastrado com sucesso.' }
+        flash.now[:notice] = 'Veiculo cadastrado com sucesso.'
+        format.html { redirect_to veiculos_path }
         format.json { render :show, status: :created, location: @veiculo }
       else
         @marcas = Marca.all.order(:descricao)
@@ -60,9 +63,12 @@ class VeiculosController < ApplicationController
   # PATCH/PUT /veiculos/1
   # PATCH/PUT /veiculos/1.json
   def update
+    @veiculo.marca_id = params[:marca_id]
+
     respond_to do |format|
       if @veiculo.update(veiculo_params)
-        format.html { redirect_to edit_veiculo_path(@veiculo) , notice: 'Veiculo atualizado com sucesso.' }
+        flash.now[:notice] = 'Veiculo atualizado com sucesso.'
+        format.html { redirect_to veiculos_path  }
         format.json { render :show, status: :ok, location: @veiculo }
       else
         @marcas = Marca.all.order(:descricao)

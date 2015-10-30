@@ -34,9 +34,6 @@
       </tbody>
     </table>
         
-      <% end %>
-    </tbody>
-  </table>
 <% else %>
   <p class="alert alert-info">
     Não encontrado.    
