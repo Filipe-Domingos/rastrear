@@ -3,7 +3,7 @@
 
 <p>
   <strong>Tipo de veiculo:</strong>
-  <%= @veiculo.tipo_veiculo.descricao %>
+  <%= @veiculo.tipo_veiculo.descricao%>
 </p>
 
 <p>
@@ -28,22 +28,22 @@
 
 <p>
   <strong>Cor:</strong>
-  <%= @veiculo.cor_veiculo.descricao %>
+  <%= @veiculo.cor_veiculo.descricao if @veiculo.cor_veiculo %>
 </p>
 
 <p>
   <strong>Chassi:</strong>
-  <%= @veiculo.chassi %>
+  <%= @veiculo.chassi if @veiculo.chassi %>
 </p>
 
 <p>
   <strong>Peso:</strong>
-  <%= @veiculo.peso %>
+  <%= @veiculo.peso if @veiculo.peso %>
 </p>
 
 <p>
   <strong>Capacidade de carga:</strong>
-  <%= @veiculo.capacidade_carga %>
+  <%= @veiculo.capacidade_carga if @veiculo.capacidade_carga %>
 </p>
 <div class="col-md-1">
   <%= link_to edit_veiculo_path(@veiculo), :class => 'btn btn-default' do %>

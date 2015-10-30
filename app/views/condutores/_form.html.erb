@@ -20,7 +20,7 @@
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :cnh %></div>
-      <div class="col-md-10"><%= f.text_field :cnh %></div>
+      <div class="col-md-10"><%= f.text_field :cnh , :onkeypress => 'return somenteNumero(event)'%></div>
     </div>
 
     <div class="form-group">
@@ -54,7 +54,7 @@
 
     <div class="form-group">
       <div class="col-md-2"><%= label_tag :telefone,'Telefone' %></div>
-      <div class="col-md-4"><%= f.text_field :ddd ,:size => 2,:onkeyup => 'mascaraDDD(this);' %>  <%= f.text_field :telefone,:onkeyup => 'mascaraTelefone(this);' %></div>
+      <div class="col-md-3"><%= f.text_field :telefone,:onkeyup => 'mascaraTelefone(this);',:size => 15 %></div>
 
     </div>
 

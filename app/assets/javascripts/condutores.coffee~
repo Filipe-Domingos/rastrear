@@ -4,5 +4,9 @@
 
 jQuery ->
   $("#datepicker").datepicker({
-    minDate: +1
+    minDate: +1;
   })
+
+jQuery -> 
+  
+  $('#veiculo_placa').mask('aaa-9999')

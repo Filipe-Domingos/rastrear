@@ -30,12 +30,13 @@ class CondutoresController < ApplicationController
   # POST /condutores
   # POST /condutores.json
   def create
-    params.require(:condutor)[:telefone] = params.require(:condutor)[:telefone].gsub(/[-]/,'')
+#    params.require(:condutor)[:telefone] = params.require(:condutor)[:telefone].gsub(/[-,(,)]/,'')
     @condutor = Condutor.new(condutor_params)
 
     respond_to do |format|
       if @condutor.save
-        format.html { redirect_to new_condutor_path, notice: 'Condutor cadastrado com sucesso.' }
+        flash.now[:notice] = 'Condutor cadastrado com sucesso.'
+        format.html { redirect_to condutores_path }
         format.json { render :show, status: :created, location: @condutor }
       else
 
@@ -50,9 +51,13 @@ class CondutoresController < ApplicationController
   # PATCH/PUT /condutores/1
   # PATCH/PUT /condutores/1.json
   def update
+    
+#    params.require(:condutor)[:telefone] = params.require(:condutor)[:telefone].gsub(/[-,(,),' ']/,'')
     respond_to do |format|
+      
       if @condutor.update(condutor_params)
-        format.html { redirect_to edit_condutor_path(@condutor), notice: 'Condutor atualizado com sucesso.' }
+        flash.now[:notice] = "Condutor atualizado com sucesso."
+        format.html { redirect_to condutores_path  }
         format.json { render :show, status: :ok, location: @condutor }
       else
         @categorias = CategoriaCnh.all.order(:descricao)
@@ -81,6 +86,6 @@ class CondutoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condutor_params
-      params.require(:condutor).permit(:nome, :cnh, :vencimento_cnh, :categoria_cnh_id,:ddd, :telefone)
+      params.require(:condutor).permit(:nome, :cnh, :vencimento_cnh, :categoria_cnh_id, :telefone)
     end
 end

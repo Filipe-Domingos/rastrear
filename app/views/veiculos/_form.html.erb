@@ -1,4 +1,4 @@
-
+ 
 <%= form_for(@veiculo) do |f| %>
   <% if @veiculo.errors.any? %>
 	  <div class="alert alert-danger alert-dismissable">
@@ -27,7 +27,7 @@
     <div class="form-group">
       <div class="col-md-1"><%= label_tag :marca_id, 'Marca' %></div>
       <div class="col-md-2">
-        <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id] } ),prompt: "Selecione uma marca") %>
+        <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id]} ,selected: @veiculo.marca_id),prompt: "Selecione uma marca") %>
       </div>
       <!--<div class="icone_add">
         <%= link_to marcas_path, :class => 'btn btn-default' do %>
@@ -53,7 +53,7 @@
 
     <div class="form-group">
       <div class="col-md-2"><%= f.label :placa %></div>
-      <div class="col-md-10"><%= f.text_field :placa %>(Ex: XXX-9999)</div>
+      <div class="col-md-10"><%= f.text_field :placa %></div>
     </div>
 
     <div class="form-group">

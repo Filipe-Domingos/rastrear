@@ -20,7 +20,7 @@
             <td><%= condutor.cnh %></td>
             <td><%=l (condutor.vencimento_cnh ? condutor.vencimento_cnh : Date.new) %></td>
             <td><%= condutor.categoria_cnh.descricao %></td>
-            <td>(<%= condutor.ddd %>)  <%= condutor.telefone %></td>
+            <td><%= condutor.telefone %></td>
             <td>
               <%= link_to edit_condutor_path(condutor) do %>
                 <span class="glyphicon glyphicon-search"></span> Editar
