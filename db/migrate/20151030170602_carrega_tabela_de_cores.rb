@@ -27,7 +27,6 @@ class CarregaTabelaDeCores < ActiveRecord::Migration
       c6 = CorVeiculo.new
       c6.descricao = "Azul"
       c6.save
-
       
     end
   end
