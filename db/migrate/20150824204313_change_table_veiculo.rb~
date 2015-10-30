@@ -1,0 +1,4 @@
+class ChangeTableVeiculo < ActiveRecord::Migration
+  def change
+  end
+end

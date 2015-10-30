@@ -1,0 +1,9 @@
+I"}(function() {
+  jQuery(function() {
+    return $("#datepicker").datepicker({
+      minDate: +1
+    });
+  });
+
+}).call(this);
+:ET

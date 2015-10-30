@@ -1,0 +1,37 @@
+<%= form_for(@marca) do |f| %>
+  <% if @marca.errors.any? %>
+	  <div class="alert alert-danger alert-dismissable">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <ul>
+	    <% @marca.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-1"><%= f.label :descricao, 'Descrição' %></div>
+      <div class="col-md-2"><%= f.text_field :descricao ,:class => 'form-control', :size => 15 %></div>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="form-group">
+    <div class="col-md-1">
+      <%= link_to marcas_path, :class => 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Voltar
+      <% end %>
+    </div>
+
+    <div class="col-md-1">
+      <%= f.submit :class => "btn btn-primary", :value => "Enviar" %>
+    </div>
+  </div>
+<% end %>
+

@@ -1,0 +1,7 @@
+I"k(function() {
+  jQuery(function() {
+    return $('#veiculo_modelo_id').empty();
+  });
+
+}).call(this);
+:ET

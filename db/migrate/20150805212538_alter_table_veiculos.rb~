@@ -1,0 +1,4 @@
+class AlterTableVeiculos < ActiveRecord::Migration
+  def change
+  end
+end

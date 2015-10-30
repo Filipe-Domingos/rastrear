@@ -1,0 +1,42 @@
+<% unless smart_listing.empty? %>
+  <%= smart_listing.paginate %>
+  <%= smart_listing.pagination_per_page_links %>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Placa</th>
+        <th>Tipo de veículo</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, smart_listing.collection) do |veiculo| %>
+        <td><%= veiculo.modelo.marca.descricao %></td>
+        <td><%= veiculo.modelo.descricao %></td>
+        <td><%= veiculo.placa %></td>
+        <td><%= veiculo.tipo_veiculo.descricao %></td>
+
+        <td>
+          <%= link_to veiculo do %>
+            <span class="glyphicon glyphicon-search"></span> Detalhes
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_veiculo_path(veiculo) do %>
+            <span class="glyphicon glyphicon-search"></span> Editar
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Excluir', veiculo, method: :delete, data: { confirm: 'Tem certeza que deseja remover este veículo?' } %>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="alert alert-info">
+    Não encontrado.    
+  </p>
+<% end %>

@@ -1,0 +1,7 @@
+class AlterColumnTelefoneCondutor < ActiveRecord::Migration
+  def change
+    change_table :condutores do |t|
+      t.string :telefone
+    end
+  end
+end
