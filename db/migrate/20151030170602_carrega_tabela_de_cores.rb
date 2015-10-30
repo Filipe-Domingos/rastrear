@@ -6,29 +6,29 @@ class CarregaTabelaDeCores < ActiveRecord::Migration
     if cores.empty?
       c1 = CorVeiculo.new
       c1.descricao = "Branco"
-      array << c1
+      c1.save
 
       c2 = CorVeiculo.new
       c2.descricao = "Amarelo"
-      array << c2
+      c2.save
 
       c3 = CorVeiculo.new
       c3.descricao = "Verde"
-      array << c3
+      c3.save
 
       c4 = CorVeiculo.new
       c4.descricao = "Preto"
-      array << c4
+      c4.save
 
       c5 = CorVeiculo.new
       c5.descricao = "Vermelho"
-      array << c5
+      c5.save
 
       c6 = CorVeiculo.new
       c6.descricao = "Azul"
-      array << c6
+      c6.save
 
-      array.save_all
+      
     end
   end
 end

@@ -1,9 +1,0 @@
-I"š(function() {
-  jQuery(function() {
-    var modelos;
-    modelos = $('#veiculo_modelo_id').html();
-    return console.log(modelos);
-  });
-
-}).call(this);
-:ET

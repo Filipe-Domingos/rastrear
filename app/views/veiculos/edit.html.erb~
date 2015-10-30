@@ -1,4 +1,0 @@
-<h1>Editando Veiculo</h1>
-
-<%= render 'form' %>
-

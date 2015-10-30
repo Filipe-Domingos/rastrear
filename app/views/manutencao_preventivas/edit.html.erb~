@@ -1,6 +1,0 @@
-<h1>Editing Manutencao Preventiva</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @manutencao_preventiva %> |
-<%= link_to 'Back', manutencao_preventivas_path %>

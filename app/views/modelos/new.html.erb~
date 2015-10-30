@@ -1,4 +1,0 @@
-<h1>Cadastro de modelo de veículo</h1>
-
-<%= render 'form' %>
-
