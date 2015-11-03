@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  cnh: MyString
+  vencimento: 2015-08-10
+  categoria_cnh_id: 
+
+two:
+  nome: MyString
+  cnh: MyString
+  vencimento: 2015-08-10
+  categoria_cnh_id: 

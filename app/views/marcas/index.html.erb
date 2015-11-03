@@ -1,0 +1,33 @@
+  <div class="page-header">
+
+    <%= link_to new_marca_path, :class => 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      Cadastrar marca
+    <% end %>
+
+    <h1>Marcas</h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Descricao</th>
+          <th colspan="2">Gerenciar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @marcas.each do |marca| %>
+          <tr>
+            <td><%= marca.descricao %></td>
+            <td><%= link_to 'Editar', edit_marca_path(marca) %>
+            <%= link_to 'Excluir', marca, method: :delete, data: { confirm: 'Tem certeza que deseja remover esta marca?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+

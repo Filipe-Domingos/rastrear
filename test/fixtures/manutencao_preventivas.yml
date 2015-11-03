@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_manutencao: 2015-08-19
+  email: MyString
+  email_enviado: false
+  kilometragem_manutencao: 1.5
+  veiculo_id: 
+  descricao: MyString
+
+two:
+  data_manutencao: 2015-08-19
+  email: MyString
+  email_enviado: false
+  kilometragem_manutencao: 1.5
+  veiculo_id: 
+  descricao: MyString

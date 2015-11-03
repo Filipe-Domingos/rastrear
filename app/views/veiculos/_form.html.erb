@@ -1,0 +1,102 @@
+ 
+<%= form_for(@veiculo) do |f| %>
+  <% if @veiculo.errors.any? %>
+	  <div class="alert alert-danger alert-dismissable">
+	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    <ul>
+	    <% @veiculo.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="row">
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :tipo_veiculo_id, 'Tipo de veiculo' %></div>
+      <div class="col-md-2">
+        <%= f.collection_select(:tipo_veiculo_id, @tipo_veiculos,:id, :descricao,prompt: "Selecione um tipo") %>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+      <div class="col-md-1"><%= label_tag :marca_id, 'Marca' %></div>
+      <div class="col-md-2">
+        <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id]} ,selected: @veiculo.marca_id),prompt: "Selecione uma marca") %>
+      </div>
+      <!--<div class="icone_add">
+        <%= link_to marcas_path, :class => 'btn btn-default' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      </div> -->      
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <div class="col-md-1"><%= f.label :modelo_id, 'Modelo' %></div>
+      <div class="col-md-2">
+        <%= f.grouped_collection_select(:modelo_id, @marcas,:modelos, :descricao,:id, :descricao,prompt: "Selecione um modelo") %>
+      </div>
+      <!--div class="icone_add">
+        <%= link_to modelos_path, :class => 'btn btn-default' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+      </div> -->
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :placa %></div>
+      <div class="col-md-10"><%= f.text_field :placa %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :renavam %></div>
+      <div class="col-md-10"><%= f.text_field :renavam %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-1"><%= f.label :cor_veiculo_id, 'Cor' %></div>
+      <div class="col-md-2">
+        <%= f.collection_select(:cor_veiculo_id, @cores,:id, :descricao,prompt: "Selecione uma cor") %>
+      </div>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :chassi %></div>
+      <div class="col-md-10"><%= f.text_field :chassi %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :peso %></div>
+      <div class="col-md-10"><%= f.text_field :peso %> Kg</div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :capacidade_carga,'Capacidade de carga' %></div>
+      <div class="col-md-10"><%= f.text_field :capacidade_carga %> Kg</div>
+    </div>
+
+    
+  </div>
+
+  <br/>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit :class => "btn btn-primary", :value => "Salvar" %>
+    </div>
+  </div>
+ 
+<% end %>

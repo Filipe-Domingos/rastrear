@@ -1,0 +1,31 @@
+  <div class="page-header">
+
+    <%= link_to new_veiculo_path, :class => 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      Cadastrar veículo
+    <% end %>
+
+    <h1>Cadastro de veículos</h1>
+  </div>
+  <div class="busca">
+  <%= smart_listing_controls_for(:veiculos, {class: "form-inline text-left"}) do %>
+    <fieldset> 
+   <!-- <legend>Busca</legend>-->
+      <%= label_tag :placa %>
+    <div class="form-group filter input-append">
+      <%= text_field_tag :filter, '', class: "search form-control", placeholder: "Digite aqui", autocomplete: "off" %>
+    </div>
+    <button class="btn btn-primary disabled" type="submit">
+      <span class="glyphicon glyphicon-search"> </span>
+    </button>
+    </fieldset>
+  <% end %>
+</div>
+  <br />
+<%= smart_listing_render(:veiculos) %>
+
+  
+
+<br>
+
+
