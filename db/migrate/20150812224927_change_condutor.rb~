@@ -1,4 +1,0 @@
-class ChangeCondutor < ActiveRecord::Migration
-  def change
-  end
-end

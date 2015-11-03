@@ -1,5 +1,0 @@
-module ApplicationHelper
-    
-  PLACA = /[A-Z]{3}-\d{4}/
-
-end
