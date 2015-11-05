@@ -20,21 +20,13 @@
     Mapa e veículos
   <% end %>
 <% end %>
-<!--<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-</div>-->
+
 
   <div class="boas_vindas_usuario hidden-print">
     
     <% if user_signed_in? %>
       Bem vindo, <%= current_user.nil? ? 'Anônimo' : current_user.email %><br/>
       <div class="boas_vindas_usuario links hidden-print">
-        <!--<%= link_to "Meus dados", edit_user_registration_path %> &nbsp;-->
         <%= link_to "Logout", destroy_user_session_path, :method => "delete" %>
       </div>
     <% end %>
