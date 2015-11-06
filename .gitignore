@@ -9,11 +9,11 @@ tmp/
 .cache
 *.swp
 mongrel/
-#bin/
+bin/
 db/schema.rb
 log/**/*
 *.tmproj
-#config/database.yml
+config/database.yml
 Gemfile.lock
 public/system/*/*
 *~
