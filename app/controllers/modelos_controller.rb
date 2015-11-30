@@ -65,6 +65,13 @@ class ModelosController < ApplicationController
     end
   end
 
+  def modelos_by_marca
+    marca = Marca.find(params[:marca_id])
+    respond_to do |format|
+      format.json { render :json => marca.modelos }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_modelo

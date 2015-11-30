@@ -15,6 +15,7 @@ class MarcasController < ApplicationController
   # GET /marcas/new
   def new
     @marca = Marca.new
+    @tipo_veiculos = TipoVeiculo.all
   end
 
   # GET /marcas/1/edit
@@ -25,6 +26,11 @@ class MarcasController < ApplicationController
   # POST /marcas.json
   def create
     @marca = Marca.new(marca_params)
+
+    params[:tipo_veiculos_ids].each do |t|
+      tipo = TipoVeiculo.find(t)
+      @marca.tipo_veiculos << tipo
+    end
 
     respond_to do |format|
       if @marca.save
@@ -63,6 +69,13 @@ class MarcasController < ApplicationController
     end
   end
 
+  def marcas_by_tipo_veiculo
+    tipo_veiculo = TipoVeiculo.find(params[:tipo_veiculo_id])
+    respond_to do |format|
+      format.json { render :json => tipo_veiculo.marcas }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_marca
@@ -71,6 +84,6 @@ class MarcasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def marca_params
-      params.require(:marca).permit(:descricao)
+      params.require(:marca).permit(:descricao,:tipo_veiculos_ids => [])
     end
 end

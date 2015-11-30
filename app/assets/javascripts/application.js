@@ -31,6 +31,51 @@
 //$.fn.datepicker.defaults.language = "pt-BR";
 //$.fn.datepicker.defaults.autoclose = true;
 
+jQuery(document).ready(function () {
+    
+    $('select[data-option-dependent=true]').each(function (i) {
+        var observer_dom_id = $(this).attr('id');
+        var observed_dom_id = $(this).data('option-observed');
+        var url_mask = $(this).data('option-url');
+        var key_method = $(this).data('option-key-method');
+        var value_method = $(this).data('option-value-method');
+//        var prompt = $(this).val() ? $(this).val() : $(this).append($('<option>').attr('value', "").text("Selecione uma marca"));
+        
+        if (observer_dom_id == "marca_id"){
+          $(this).append($('<option>').attr('value', "").text("Selecione uma marca"));
+          var prompt = "Selecione uma marca"
+        }else{
+          $(this).append($('<option>').attr('value', "").text("Selecione um modelo"));
+          var prompt = "Selecione um modelo"
+        }
+
+        var regexp = /:[0-9a-zA-Z_]+:/g;
+        var observer = $('select#' + observer_dom_id);
+        var observed = $('#' + observed_dom_id);
+        if (!observer.val() && observed.size() > 1) {
+            observer.attr('disabled', true);
+        }
+        
+        observed.on('change', function () {
+            observer.empty().append(prompt);
+            if (observed.val()) {
+                url = url_mask.replace(regexp, observed.val());
+                $.getJSON(url, function (data) {
+                    observer.append($('<option>').attr('value', "").text(prompt));
+                    observer.attr('disabled', false);
+                    $.each(data, function (i, object) {
+                        
+                        observer.append($('<option>').attr('value', object[key_method]).text(object[value_method]));
+                        observer.attr('disabled', false);
+                    });
+                });
+            }
+        });
+    });
+});
+
+
+
 $(function() {
   $( "#accordion" ).accordion({
     heightStyle: "fill"

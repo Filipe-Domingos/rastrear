@@ -10,12 +10,42 @@
 	    </ul>
 	  </div>
   <% else %>
-    <p id="notice"><%= notice %></p>
+    <p id="notice"></p>
   <% end %>
 
   <div class="row">
 
     <div class="form-group">
+      <div class="col-md-2"><%= f.label :tipo_veiculo_id, 'Tipo de veiculo' %></div>
+      <div class="col-md-2">
+        <%= f.select :tipo_veiculo_id, options_from_collection_for_select(@tipo_veiculos, "id", "descricao"), :prompt => "Selecione um tipo" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :marca_id, 'Marca' %></div>
+      <div class="col-md-2">
+        <%= select_tag :marca_id, options_from_collection_for_select([], "id", "descricao"),
+                     "data-option-dependent" => true,
+                     "data-option-observed" => "veiculo_tipo_veiculo_id",
+                     "data-option-url" => "/marcas/:tipo_veiculo_id:/marcas_by_tipo_veiculo.json",
+                     "data-option-key-method" => :id,
+                     "data-option-value-method" => :descricao%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2"><%= f.label :modelo_id, 'Modelo' %></div>
+      <div class="col-md-2">
+        <%= select_tag :modelo_id, options_from_collection_for_select([], "id", "descricao"),
+                     "data-option-dependent" => true,
+                     "data-option-observed" => "marca_id",
+                     "data-option-url" => "/modelos/:marca_id:/modelos_by_marca.json",
+                     "data-option-key-method" => :id,
+                     "data-option-value-method" => :descricao %>
+      </div>
+    </div>
+    <!--<div class="form-group">
       <div class="col-md-2"><%= f.label :tipo_veiculo_id, 'Tipo de veiculo' %></div>
       <div class="col-md-2">
         <%= f.collection_select(:tipo_veiculo_id, @tipo_veiculos,:id, :descricao,prompt: "Selecione um tipo") %>
@@ -27,13 +57,16 @@
     <div class="form-group">
       <div class="col-md-1"><%= label_tag :marca_id, 'Marca' %></div>
       <div class="col-md-2">
+        <%= f.grouped_collection_select(:marca_id, @tipo_veiculos,:marcas, :descricao,:id, :descricao,prompt: "Selecione uma marca") %>
+      </div>
+      <div class="col-md-2">
         <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id]} ,selected: @veiculo.marca_id),prompt: "Selecione uma marca") %>
       </div>
-      <!--<div class="icone_add">
+      <div class="icone_add">
         <%= link_to marcas_path, :class => 'btn btn-default' do %>
           <span class="glyphicon glyphicon-plus"></span>
         <% end %>
-      </div> -->      
+      </div>       
     </div>
     <br/>
 
@@ -46,8 +79,8 @@
         <%= link_to modelos_path, :class => 'btn btn-default' do %>
           <span class="glyphicon glyphicon-plus"></span>
         <% end %>
-      </div> -->
-    </div>
+      </div> 
+    </div>-->
 
     <br/>
 
