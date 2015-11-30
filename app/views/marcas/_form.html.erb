@@ -9,7 +9,7 @@
 	    </ul>
 	  </div>
   <% else %>
-    <p id="notice"><%= notice %></p>
+    <p id="notice"></p>
   <% end %>
 
   <div class="row">
@@ -20,6 +20,22 @@
   </div>
 
   <br/>
+
+  <% index = 1 %>
+  <% @tipo_veiculos.each do |tipo_veiculo| %>
+    
+    <%= check_box_tag("tipo_veiculos_ids[]", tipo_veiculo.id, false, { class: 'check-box' } ) %>
+    <%= tipo_veiculo.descricao %>
+    <%= hidden_field_tag tipo_veiculo.id, tipo_veiculo.id %>
+    
+    <% if index != 0 && index % 3 == 0 %>
+      <br>
+    <%end%> 
+    <% index += 1%>
+  <% end %>
+    
+  <br>
+  <br>
 
   <div class="form-group">
     <div class="col-md-1">

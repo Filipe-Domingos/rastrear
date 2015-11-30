@@ -26,8 +26,8 @@
     
     <% if user_signed_in? %>
       Bem vindo, <%= current_user.nil? ? 'Anônimo' : current_user.email %><br/>
-      <div class="boas_vindas_usuario links hidden-print">
-        <%= link_to "Logout", destroy_user_session_path, :method => "delete" %>
+      <div class="logout hidden-print">
+        <%= link_to "Sair", destroy_user_session_path, :method => "delete" %>
       </div>
     <% end %>
   </div>

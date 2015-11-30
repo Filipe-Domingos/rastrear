@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   post 'login/logar' => 'login#logar'
 
+  get "marcas/:tipo_veiculo_id/marcas_by_tipo_veiculo" => "marcas#marcas_by_tipo_veiculo", :as => "marcas_by_tipo_veiculo", :format => :json
+
+  get "modelos/:marca_id/modelos_by_marca" => "modelos#modelos_by_marca", :as => "modelos_by_marca", :format => :json
+
   resources :condutores
   resources :veiculos
   resources :tipo_veiculos

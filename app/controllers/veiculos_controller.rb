@@ -19,6 +19,7 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos/new
   def new
+    
     @veiculo = Veiculo.new
     @marcas = Marca.all.order(:descricao)
     @modelos = Modelo.all.order(:descricao)
@@ -42,6 +43,7 @@ class VeiculosController < ApplicationController
     
     @veiculo = Veiculo.new(veiculo_params)
     @veiculo.marca_id = params[:marca_id]
+    @veiculo.modelo_id = params[:modelo_id]
     
     respond_to do |format|
       if @veiculo.save
