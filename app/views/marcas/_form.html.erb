@@ -1,4 +1,4 @@
-<%= form_for(@marca) do |f| %>
+<%= form_for(@marca,:html => { :class => 'formulario_cadastro' }) do |f| %>
   <% if @marca.errors.any? %>
 	  <div class="alert alert-danger alert-dismissable">
 	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

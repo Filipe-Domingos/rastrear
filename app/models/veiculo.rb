@@ -3,6 +3,7 @@ class Veiculo < ActiveRecord::Base
   belongs_to :marca
   belongs_to :cor_veiculo
   belongs_to :tipo_veiculo
+  has_many :agendamento_viagens, foreign_key: 'veiculos_id'
 
   attr_accessor :marca_id
 
@@ -21,6 +22,10 @@ class Veiculo < ActiveRecord::Base
     end
     
     veiculos
+  end
+
+  def descricao_veiculo 
+    self.placa << " - " << self.modelo.marca.descricao << " " << self.modelo.descricao
   end
 
 end

@@ -2,23 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_manutencao_preventiva{
-  background: #ededed;
-  border: 2px solid #ccc;
-  display: inline;
-  float: left;
-  margin-left: 30%;
-  text-align: center;
-  width: 460px;
-}
+//#new_manutencao_preventiva{
+//  background: #ededed;
+//  border: 2px solid #ccc;
+//  display: inline;
+//  float: left;
+//  margin-left: 30%;
+//  text-align: center;
+//  width: 460px;
+//}
 
-#new_manutencao_preventiva div{
-  float: left;
-}
-#new_manutencao_preventiva .col-md-1, #new_manutencao_preventiva .col-md-2{
-  margin-left: 10px;
-  text-align: left;
-} 
+//#new_manutencao_preventiva div{
+//  float: left;
+//}
+//#new_manutencao_preventiva .col-md-1, #new_manutencao_preventiva .col-md-2{
+//  margin-left: 10px;
+//  text-align: left;
+//} 
+
+//.new_manutencao_preventiva .col-sm-offset-2 {
+//  width: 0%;
+//  margin-left: 145px;
+//  
+//}
+
+//#new_manutencao_preventiva .col-md-2 ,#new_manutencao_preventiva .col-md-1{
+//  width: 27.667%;
+//}
 
 .col-md-10{ 
   width: 320px;
@@ -27,9 +37,7 @@
 .form-group {
   width: 500px;
 }
-#new_manutencao_preventiva .col-md-2 ,#new_manutencao_preventiva .col-md-1{
-  width: 27.667%;
-}
+
 .alert-danger {
   width: 457px;
 }
@@ -67,11 +75,7 @@
 .edit_manutencao_preventiva  .col-md-2 ,.edit_manutencao_preventiva .col-md-1, .edit_manutencao_preventiva  .col-md-2 ,.edit_manutencao_preventiva .col-md-1{
   width: 27.667%;
 }
-.new_manutencao_preventiva .col-sm-offset-2 {
-  width: 0%;
-  margin-left: 145px;
-  
-}
+
 
 .edit_manutencao_preventiva .col-sm-offset-2{
   width: 0%;
