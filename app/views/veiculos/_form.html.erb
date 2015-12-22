@@ -1,5 +1,5 @@
  
-<%= form_for(@veiculo) do |f| %>
+<%= form_for(@veiculo,:html => { :class => 'formulario_cadastro' }) do |f| %>
   <% if @veiculo.errors.any? %>
 	  <div class="alert alert-danger alert-dismissable">
 	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -45,42 +45,6 @@
                      "data-option-value-method" => :descricao %>
       </div>
     </div>
-    <!--<div class="form-group">
-      <div class="col-md-2"><%= f.label :tipo_veiculo_id, 'Tipo de veiculo' %></div>
-      <div class="col-md-2">
-        <%= f.collection_select(:tipo_veiculo_id, @tipo_veiculos,:id, :descricao,prompt: "Selecione um tipo") %>
-      </div>
-    </div>
-
-    <br/>
-
-    <div class="form-group">
-      <div class="col-md-1"><%= label_tag :marca_id, 'Marca' %></div>
-      <div class="col-md-2">
-        <%= f.grouped_collection_select(:marca_id, @tipo_veiculos,:marcas, :descricao,:id, :descricao,prompt: "Selecione uma marca") %>
-      </div>
-      <div class="col-md-2">
-        <%= select_tag(:marca_id,options_for_select( @marcas.map { |m| [m.descricao, m.id]} ,selected: @veiculo.marca_id),prompt: "Selecione uma marca") %>
-      </div>
-      <div class="icone_add">
-        <%= link_to marcas_path, :class => 'btn btn-default' do %>
-          <span class="glyphicon glyphicon-plus"></span>
-        <% end %>
-      </div>       
-    </div>
-    <br/>
-
-    <div class="form-group">
-      <div class="col-md-1"><%= f.label :modelo_id, 'Modelo' %></div>
-      <div class="col-md-2">
-        <%= f.grouped_collection_select(:modelo_id, @marcas,:modelos, :descricao,:id, :descricao,prompt: "Selecione um modelo") %>
-      </div>
-      <!--div class="icone_add">
-        <%= link_to modelos_path, :class => 'btn btn-default' do %>
-          <span class="glyphicon glyphicon-plus"></span>
-        <% end %>
-      </div> 
-    </div>-->
 
     <br/>
 

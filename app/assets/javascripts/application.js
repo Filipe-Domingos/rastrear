@@ -31,6 +31,7 @@
 //$.fn.datepicker.defaults.language = "pt-BR";
 //$.fn.datepicker.defaults.autoclose = true;
 
+
 jQuery(document).ready(function () {
     
     $('select[data-option-dependent=true]').each(function (i) {

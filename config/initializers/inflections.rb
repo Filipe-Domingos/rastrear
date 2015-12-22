@@ -6,7 +6,8 @@
  ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
-   inflect.irregular 'condutor', 'condutores'
+  inflect.irregular 'condutor', 'condutores'
+  inflect.irregular 'agendamento_viagem', 'agendamento_viagens'  
 #   inflect.uncountable %w( fish sheep )
  end
 

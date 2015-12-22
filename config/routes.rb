@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agendamento_viagens
   devise_for :users
   resources :usuarios
   resources :manutencao_preventivas
