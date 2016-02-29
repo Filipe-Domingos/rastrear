@@ -45,7 +45,7 @@ class AgendamentoViagensController < ApplicationController
     respond_to do |format|
       if @agendamento_viagem.save
         flash.now[:notice] = 'Viagem agendada com sucesso.'
-        format.html { redirect_to @agendamento_viagem  }
+        format.html { redirect_to agendamento_viagens_url  }
         format.json { render :show, status: :created, location: @agendamento_viagem }
       else
         @veiculos = Veiculo.combo_manutencao_preventiva
@@ -70,7 +70,7 @@ class AgendamentoViagensController < ApplicationController
     respond_to do |format|
       if @agendamento_viagem.update(agendamento_viagem_params)
         flash.now[:notice] = 'Viagem atualizada com sucesso.'
-        format.html { redirect_to @agendamento_viagem }
+        format.html { redirect_to agendamento_viagens_url }
         format.json { render :show, status: :ok, location: @agendamento_viagem }
       else
 

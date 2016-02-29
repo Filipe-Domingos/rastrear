@@ -20,6 +20,7 @@ class MarcasController < ApplicationController
 
   # GET /marcas/1/edit
   def edit
+    @tipo_veiculos = TipoVeiculo.all
   end
 
   # POST /marcas

@@ -146,6 +146,9 @@ $(document).ready(function(){
 });
 
 
+
+
+
 function somenteNumero(e){
   var tecla=(window.event)?event.keyCode:e.which;
    

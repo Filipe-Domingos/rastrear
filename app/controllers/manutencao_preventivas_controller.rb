@@ -9,6 +9,7 @@ class ManutencaoPreventivasController < ApplicationController
     manutencoes_scope = ManutencaoPreventiva.all
     manutencoes_scope = manutencoes_scope.where("LOWER(#{params[:field]}) = #{params[:filter]}") if params[:filter]
     @manutencoes = smart_listing_create(:manutencoes, manutencoes_scope, partial: "manutencao_preventivas/listing", default_sort: {created_at: "desc"})
+    
   end
 
   # GET /manutencao_preventivas/1
